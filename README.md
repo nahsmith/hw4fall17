@@ -20,3 +20,5 @@ the running app. You can also view the app in the Cloud9 "Preview" window.
 0. To kill the server, enter CNTL-c.
 
 
+# the IP address for the app is: https://secret-beyond-16742.herokuapp.com
+# https://git.heroku.com/secret-beyond-16742.git
