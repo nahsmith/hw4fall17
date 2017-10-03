@@ -2,8 +2,7 @@
 %html
   %head
     %title Rotten Potatoes!
-    // = button_to( "Sign up/Login", new_user_path, :method => :post )
-    = button_to "Sign up/Login", :action => new_user_path, :controller => users_url
+    = button_to "Sign up/Login", :controller => users_url, :method => :post
     = stylesheet_link_tag 'application', 'media' => 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
