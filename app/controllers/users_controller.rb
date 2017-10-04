@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  def movie_params
+  def user_params
     params.require(:user).permit(:user_id, :email, :session_token)
   end
 
@@ -38,48 +38,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    flash[:notice] = "Movie '#{@user.user_id}' deleted."
+    flash[:notice] = "User '#{@user.user_id}' deleted."
     redirect_to movies_path
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-mo
