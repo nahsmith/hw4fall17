@@ -7,11 +7,11 @@ class UsersController < ApplicationController
   def show
     id = params[:id] # retrieve user ID from URI route
     @user = User.find(id) # look up user by unique ID
-    # will render app/views/user/show.<extension> by default
+    # will render app/views/users/show.<extension> by default
   end
 
   def index
-    @user = User.all
+    @users = User.all
   end
 
   def new
@@ -20,8 +20,16 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create!(user_params)
-    flash[:notice] = "#{@user.user_id} was successfully created."
-    redirect_to user_path
+    # if user does not exist
+#   if !@user.find[:user_id]
+    flash[:notice] = "Welcome' #{@user.user_id}. Your account has been created created."
+    redirect_to movies_path
+#   end
+    # if user does exist
+#   else
+#        flash[:notice] = "Sorry', this user-id is taken. Try again"
+#        redirect_to new_user_path
+#   end
   end
 
   def edit
@@ -32,13 +40,13 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
     @user.update_attributes!(user_params)
     flash[:notice] = "#{@user.user_id} was successfully updated."
-    redirect_to user_path(@user)
+    redirect_to movies_path
   end
 
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    flash[:notice] = "User '#{@user.user_id}' deleted."
-    redirect_to user_path
+    flash[:notice] = "#{@user.user_id}' deleted."
+    redirect_to movies_path
   end
 end
